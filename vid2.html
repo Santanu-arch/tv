@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World!</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 1; /* Make sure the TV image is behind the video */
+    }
+
+    video {
+      position: absolute;
+      width: 695px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 126px;
+      left: 53px;      /* Adjust this as needed to position the video */
+      z-index: 2; /* Ensure the video appears on top of the TV */
+    }
+
+    .button-container {
+      position: absolute;
+      top: 700px; /* Adjust the position of buttons to be below the image */
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="tv.jpg" alt="TV" id="tv">
+    <div id="d"></div>
+    <div class="button-container">
+      <button onclick="fun1()">On</button>
+      <button onclick="fun2()">Off</button>
+    </div>
+  </div>
+
+  <script>
+    let d = document.getElementById('d');
+
+    function fun1() {
+      // Insert the video inside the 'd' div
+      d.innerHTML = "<video src='vid.mp4' poster='p.jpg' autoplay controls muted></video>";
+    }
+
+    function fun2() {
+      d.innerHTML = "";
+    }
+  </script>
+</body>
+</html>
